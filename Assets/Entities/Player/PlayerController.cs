@@ -8,9 +8,25 @@ public class PlayerController : MonoBehaviour {
 	
 	public float speed = 15.0f;
 	public float padding = 1;
+	public float health = 200;
 
 	private float xmax = -5;
 	private float xmin = 5;
+	
+	void OnTriggerEnter2D(Collider2D collider){
+		Projectile missile = collider.gameObject.GetComponent<Projectile>();
+		if(missile){
+			health -= missile.GetDamage();
+			missile.Hit();
+			if (health <= 0) {
+				Die();
+			}
+		}
+	}
+	
+	void Die(){
+		Destroy(gameObject);
+	}
 	
 	void Start(){
 		Camera camera = Camera.main;
