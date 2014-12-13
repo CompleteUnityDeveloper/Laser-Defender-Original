@@ -7,6 +7,7 @@ public class FormationController : MonoBehaviour {
 	public float height = 5;
 	public float speed = 5.0f;
 	public float padding = 1;
+	public float spawnDelaySeconds = 1f;
 	
 	private int direction = 1;
 	private float boundaryRightEdge, boundaryLeftEdge;
@@ -17,11 +18,7 @@ public class FormationController : MonoBehaviour {
 		float distance = transform.position.z - camera.transform.position.z;
 		boundaryLeftEdge = camera.ViewportToWorldPoint(new Vector3(0,0,distance)).x + padding;
 		boundaryRightEdge = camera.ViewportToWorldPoint(new Vector3(1,1,distance)).x - padding;
-		
-		foreach( Transform child in transform){
-			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
-			enemy.transform.parent = child;
-		}
+		SpawnEnemies();
 	}
 	
 	void OnDrawGizmos(){
@@ -47,5 +44,53 @@ public class FormationController : MonoBehaviour {
 			direction = 1;
 		}
 		transform.position += new Vector3(direction * speed * Time.deltaTime,0,0);
+		
+		if(AllMembersAreDead()){
+			Debug.Log("My formation is empty :(");
+			SpawnUntilFull();
+		}
+	}
+
+	void SpawnEnemies(){
+		foreach( Transform position in transform){
+			GameObject enemy = Instantiate(enemyPrefab, position.transform.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = position;
+		}
+	}
+	
+	void SpawnUntilFull(){
+		Transform freePos = NextFreePosition();
+		GameObject enemy = Instantiate(enemyPrefab, freePos.position, Quaternion.identity) as GameObject;
+		enemy.transform.parent = freePos;
+		if(FreePositionExists()){
+			Invoke("SpawnUntilFull", spawnDelaySeconds);
+		}
+	}
+	
+	bool FreePositionExists(){
+		foreach(Transform position in transform){
+			if(position.childCount <= 0){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	Transform NextFreePosition(){
+		foreach(Transform position in transform){
+			if(position.childCount <= 0){
+				return position;
+			}
+		}
+		return null;
+	}
+
+	bool AllMembersAreDead(){
+		foreach(Transform position in transform){
+			if(position.childCount > 0){
+				return false;
+			}
+		}
+		return true;
 	}
 }
