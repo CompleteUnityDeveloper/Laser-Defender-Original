@@ -195,6 +195,7 @@ MonoBehaviour:
   speed: 15
   padding: 1
   health: 200
+  fireSound: {fileID: 8300000, guid: 5cd481a322bc14a22995ec2ac6435159, type: 3}
 --- !u!212 &192756685
 SpriteRenderer:
   m_ObjectHideFlags: 0

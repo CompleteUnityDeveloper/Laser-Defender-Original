@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 15.0f;
 	public float padding = 1;
 	public float health = 200;
+	
+	public AudioClip fireSound;
 
 	private float xmax = -5;
 	private float xmin = 5;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour {
 	void Fire(){
 		GameObject beam = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
 		beam.rigidbody2D.velocity = new Vector3(0, projectileSpeed, 0);
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space)){
