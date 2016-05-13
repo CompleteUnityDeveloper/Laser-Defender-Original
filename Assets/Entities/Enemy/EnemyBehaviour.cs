@@ -25,7 +25,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	void Fire(){
 		GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
-		laser.rigidbody2D.velocity = new Vector2(0,-projectileSpeed);
+		laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-projectileSpeed);
 		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	
