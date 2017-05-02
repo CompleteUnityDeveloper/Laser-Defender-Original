@@ -189,6 +189,3 @@ Good luck!
 + Particle Systems
 + Physics Layers
 + Sorting Layers
-
----
-Find out more about our [Complete Unity Developer Course](https://www.udemy.com/unitycourse?couponCode=GitHubDiscount).
