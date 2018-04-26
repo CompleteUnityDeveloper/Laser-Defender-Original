@@ -61,7 +61,7 @@ public class FormationController : MonoBehaviour
         }
         if (formationLeftEdge < boundaryLeftEdge)
         {
-            panDirection = -1;
+            panDirection = 1;
         }
 
         transform.position += new Vector3(panDirection * speed * Time.deltaTime, 0, 0);
