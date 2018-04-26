@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Die(){
-		LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+		Level man = GameObject.Find("LevelManager").GetComponent<Level>();
 		man.LoadLevel("Win Screen");
 		Destroy(gameObject);
 	}
