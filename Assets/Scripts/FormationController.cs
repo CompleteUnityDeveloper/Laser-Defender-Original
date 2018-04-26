@@ -53,7 +53,8 @@ public class FormationController : MonoBehaviour
 		}
 	}
 
-	void SpawnUntilFull(){
+	void SpawnUntilFull()
+    {
 		Transform freePos = NextFreePosition();
 		GameObject enemy = Instantiate(enemyPrefab, freePos.position, Quaternion.identity) as GameObject;
 		enemy.transform.parent = freePos;
