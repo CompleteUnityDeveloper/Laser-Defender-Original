@@ -18,8 +18,7 @@ public class Enemy : MonoBehaviour
 
 	void Update()
     {
-        float probabilityOfShotThisFrame = shotsPerSecond * Time.deltaTime;
-		if(Random.value < probabilityOfShotThisFrame)
+        if(Random.value < shotsPerSecond * Time.deltaTime)
         {
 			Fire ();
 		}

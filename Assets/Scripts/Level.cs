@@ -4,8 +4,7 @@ using System.Collections;
 
 public class Level : MonoBehaviour
 {
-    // state variables
-    // todo consider or challenge level play time
+    // state variables TODO consider or challenge level play time
 
     // configuration parameters
 
@@ -13,13 +12,11 @@ public class Level : MonoBehaviour
 
 	public void LoadLevel(string name)
     {
-		Debug.Log ("New Level load: " + name);
         SceneManager.LoadScene(name);
 	}
 
 	public void QuitRequest()
     {
-		Debug.Log ("Quit requested");
 		Application.Quit ();
 	}
 }
