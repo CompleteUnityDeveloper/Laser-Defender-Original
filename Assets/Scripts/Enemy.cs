@@ -12,18 +12,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
 	
-    // instance variables for state
-    // todo consdier a level play time
-
-    // cached references for readability
-	ScoreKeeper scoreKeeper;
+    // instance variables for state TODO consdier a level play time
 	
     // messages, then public methods, then private methods... 
-    void Start()
-    {
-		scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
-	}
-        
+
 	void Update()
     {
         float probabilityOfShotThisFrame = shotsPerSecond * Time.deltaTime;
@@ -36,7 +28,7 @@ public class Enemy : MonoBehaviour
 	void Fire()
     {
 		GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
-		laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-projectileSpeed);
+		laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
 		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	
@@ -62,7 +54,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
 		AudioSource.PlayClipAtPoint(deathSound, transform.position);
-		scoreKeeper.Score(scoreValue);
+        FindObjectOfType<ScoreKeeper>().Score(scoreValue);
 		Destroy(gameObject);
 	}
 }
