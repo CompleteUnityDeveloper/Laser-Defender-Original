@@ -27,10 +27,7 @@ public class MusicPlayer : MonoBehaviour
     void Start ()
     {
         SetupSingleton();
-        var audioSource = GetComponent<AudioSource>();
-        audioSource.clip = startClip;
-        audioSource.loop = true;
-        audioSource.Play();
+        PlayMusicForScene(SceneManager.GetActiveScene());
     }
 
     private void SetupSingleton()
@@ -48,10 +45,13 @@ public class MusicPlayer : MonoBehaviour
 
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("MusicPlayer loaded level " + scene.buildIndex);
+        PlayMusicForScene(scene);
+    }
+
+    private void PlayMusicForScene(Scene scene)
+    {
         var audioSource = GetComponent<AudioSource>();
         audioSource.Stop();
-
         if (scene.buildIndex == 0)
         {
             audioSource.clip = startClip;
