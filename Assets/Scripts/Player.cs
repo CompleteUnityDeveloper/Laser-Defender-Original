@@ -61,12 +61,17 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             deltaX = transform.position.x - speed * Time.deltaTime;
+            MoveBy(deltaX);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             deltaX = transform.position.x + speed * Time.deltaTime;
+            MoveBy(deltaX);
         }
+    }
 
+    private void MoveBy(float deltaX)
+    {
         transform.position = new Vector3(
             Mathf.Clamp(deltaX, xmin, xmax),
             transform.position.y,
