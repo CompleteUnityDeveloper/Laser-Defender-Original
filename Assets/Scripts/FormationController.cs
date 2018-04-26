@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FormationController : MonoBehaviour {
+public class FormationController : MonoBehaviour
+{
 	public GameObject enemyPrefab;
 	public float width = 10;
 	public float height = 5;
@@ -45,7 +46,8 @@ public class FormationController : MonoBehaviour {
 		}
 		transform.position += new Vector3(direction * speed * Time.deltaTime,0,0);
 		
-		if(AllMembersAreDead()){
+		if(AllMembersAreDead())
+        {
 			Debug.Log("My formation is empty :(");
 			SpawnUntilFull();
 		}

@@ -17,6 +17,6 @@ public class Level : MonoBehaviour
 
 	public void QuitRequest()
     {
-		Application.Quit ();
+		Application.Quit();
 	}
 }

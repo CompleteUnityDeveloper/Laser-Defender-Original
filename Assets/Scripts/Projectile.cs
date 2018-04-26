@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : MonoBehaviour {
-
-	public float damage = 100f;
+public class Projectile : MonoBehaviour
+{
+	[SerializeField] float damage = 100f;
 	
-	public float GetDamage(){
+	public float GetDamage()
+    {
 		return damage;
 	}
 	
-	public void Hit(){
+	public void Hit()
+    {
 		Destroy(gameObject);
 	}
 }
