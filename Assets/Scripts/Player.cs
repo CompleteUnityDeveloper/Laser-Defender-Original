@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     // configuration parameters, consdier SO
     [Header("Projectile")]
-	[SerializeField] GameObject laser;
+	[SerializeField] GameObject laserPrefab;
 	[SerializeField] float projectileSpeed = 10;
 	[SerializeField] float projectileRepeatRate = 0.2f;
     [SerializeField] AudioClip fireSound;
@@ -24,17 +24,15 @@ public class Player : MonoBehaviour
     // messages, then public methods, then private methods...
     void OnTriggerEnter2D(Collider2D other)
     {
-		Projectile missile = other.gameObject.GetComponent<Projectile>();
-		if(missile)
-        {
-            ProcessHit(missile);
-        }
+		var projectile = other.gameObject.GetComponent<Projectile>();
+		if(!projectile) { return; }  //project against null
+        ProcessHit(projectile);
     }
 
-    private void ProcessHit(Projectile missile)
+    private void ProcessHit(Projectile projectile)
     {
-        health -= missile.GetDamage();
-        missile.Hit();
+        health -= projectile.GetDamage();
+        projectile.Hit();
         if (health <= 0)
         {
             Die();
@@ -91,10 +89,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FireSingleBullet()
+    private void FireSingleLaser()
     {
-        GameObject beam = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+        laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
         AudioSource.PlayClipAtPoint(fireSound, transform.position);
     }
 

@@ -98,6 +98,7 @@ public class FormationController : MonoBehaviour
 				return position;
 			}
 		}
+        print("stuff here");
 		return null;
 	}
 

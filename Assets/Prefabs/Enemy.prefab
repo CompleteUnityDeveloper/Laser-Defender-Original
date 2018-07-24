@@ -110,7 +110,7 @@ MonoBehaviour:
   projectile: {fileID: 100000, guid: 55d48eaa239d84186ab509006ca1dd06, type: 2}
   projectileSpeed: 10
   health: 80
-  shotsPerSecond: 0.5
+  shotsPerSecond: 10
   scoreValue: 150
   fireSound: {fileID: 8300000, guid: ab7321eb71b484243a1dfefd853cff00, type: 3}
   deathSound: {fileID: 8300000, guid: 718aa9f612d6e47ceab7f5df686e30f8, type: 3}

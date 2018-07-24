@@ -8,18 +8,23 @@ public class Game : MonoBehaviour
 
     void OnEnable()
     {
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        SceneManager.sceneLoaded += OnWhyTF;
     }
 
     void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnLevelFinishedLoading; // always unsubscribe
+        SceneManager.sceneLoaded -= OnWhyTF; // always unsubscribe
     }
 
-	void Start()
+    private void Start()
     {
-        SetupSingleton();
-	}
+        
+    }
+
+    //void Start()
+    //   {
+    //       SetupSingleton();
+    //}
 
     private void SetupSingleton()
     {
@@ -43,7 +48,7 @@ public class Game : MonoBehaviour
 		score += points;
 	}
 
-    private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    private void OnWhyTF(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex == 0) // TODO consier even more robust
         {
