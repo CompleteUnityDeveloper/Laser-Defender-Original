@@ -7,24 +7,40 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float health = 150f;
-    [SerializeField] float shotsPerSecond = 0.5f;
+    [SerializeField] float shotCounter;
+    [SerializeField] float minTimeBetweenShots = .2f;
+    [SerializeField] float maxTimeBetweenShots = 5f;
     [SerializeField] int scoreValue = 150;
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
-	
+
     // instance variables for state TODO consdier a level play time
-	
+
     // messages, then public methods, then private methods... 
 
-	void Update()
+
+    // Updated by Rick - Random firing rate with min and max times between shot
+    private void Start()
     {
-        if(Random.value < Time.deltaTime * shotsPerSecond)
+        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+    }
+
+    void Update()
+    {
+        CountDownAndShoot();
+    }
+
+    private void CountDownAndShoot()
+    {
+        shotCounter -= Time.deltaTime;
+        if (shotCounter <= 0f)
         {
-			Fire ();
-		}
-	}
-	
-	void Fire()
+            Fire();
+            shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        }
+    }
+
+    void Fire()
     {
 		GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
 		laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
