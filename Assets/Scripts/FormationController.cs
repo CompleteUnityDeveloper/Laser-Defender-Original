@@ -37,35 +37,35 @@ public class FormationController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        CalculateBoundaryEdges();
-        PanFormationLeftAndRight();
+        //CalculateBoundaryEdges();
+        //PanFormationLeftAndRight();
         if (AllMembersAreDead()) { SpawnUntilFull(); }
     }
 
-    private void CalculateBoundaryEdges()
-    {
-        Camera mainCamera = Camera.main;
-        float distance = transform.position.z - mainCamera.transform.position.z;
-        boundaryLeftEdge = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, distance)).x + padding;
-        boundaryRightEdge = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, distance)).x - padding;
-    }
+    //private void CalculateBoundaryEdges()
+    //{
+    //    Camera mainCamera = Camera.main;
+    //    float distance = transform.position.z - mainCamera.transform.position.z;
+    //    boundaryLeftEdge = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, distance)).x + padding;
+    //    boundaryRightEdge = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, distance)).x - padding;
+    //}
 
-    private void PanFormationLeftAndRight()
-    {
-        float formationRightEdge = transform.position.x + 0.5f * width;
-        float formationLeftEdge = transform.position.x - 0.5f * width;
+    //private void PanFormationLeftAndRight()
+    //{
+    //    float formationRightEdge = transform.position.x + 0.5f * width;
+    //    float formationLeftEdge = transform.position.x - 0.5f * width;
 
-        if (formationRightEdge > boundaryRightEdge)
-        {
-            panDirection = -1;
-        }
-        if (formationLeftEdge < boundaryLeftEdge)
-        {
-            panDirection = 1;
-        }
+    //    if (formationRightEdge > boundaryRightEdge)
+    //    {
+    //        panDirection = -1;
+    //    }
+    //    if (formationLeftEdge < boundaryLeftEdge)
+    //    {
+    //        panDirection = 1;
+    //    }
 
-        transform.position += new Vector3(panDirection * speed * Time.deltaTime, 0, 0);
-    }
+    //    transform.position += new Vector3(panDirection * speed * Time.deltaTime, 0, 0);
+    //}
 
     void SpawnUntilFull()
     {

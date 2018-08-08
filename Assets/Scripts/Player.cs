@@ -81,11 +81,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            InvokeRepeating("FireSingleBullet", 0f, projectileRepeatRate);
+            InvokeRepeating("FireSingleLaser", 0f, projectileRepeatRate);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            CancelInvoke("FireSingleBullet");
+            CancelInvoke("FireSingleLaser");
         }
     }
 
