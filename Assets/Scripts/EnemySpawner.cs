@@ -4,26 +4,44 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] float spawnDelaySeconds = .5f;
-    [SerializeField] float spawnRandomFactor = 0.2f;
-    [SerializeField] Transform enemyParentTransform;
-    [SerializeField] Transform startingWaypoint;
+    [SerializeField] EnemyWaves startingWave;  // change to an array of allWaves. 
+
+    EnemyWaves currentWave;
+    int spawnCounter;
 
     // Use this for initialization
-    void Start () {
-        SpawnEnemy();
+    void Start() {
+        currentWave = startingWave;
+        spawnCounter = currentWave.GetNumberOfEnemies();
+        print(spawnCounter);
+        SpawnWaves();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+    private void SpawnWaves()
+    {
+        SpawnEnemy();
+        spawnCounter--;
+        if (spawnCounter < 1)
+        {
+            currentWave = currentWave.GetNextWave();
+            spawnCounter = currentWave.GetNumberOfEnemies();
+            print(currentWave.name);
+        }
     }
 
     void SpawnEnemy()
     {
-        GameObject newEnemy = Instantiate(enemyPrefab, startingWaypoint.transform.position, Quaternion.identity) as GameObject;
-        Invoke("SpawnEnemy", spawnDelaySeconds + Random.Range(-spawnRandomFactor, spawnRandomFactor));
+        GameObject newEnemy = Instantiate
+            (currentWave.GetEnemyPrefab(),
+            currentWave.GetStartingWayPoint().transform.position, 
+            Quaternion.identity) as GameObject;
+
+        print(spawnCounter);
+
+//        float randomFactor = currentWave.GetSpawnRandomFactor();
+        Invoke("SpawnWaves", 0.5f);
+        
+//      Invoke("ManageWaves", currentWave.GetTimeBetweenSpawns() + Random.Range(-randomFactor, randomFactor));
     }
 
 }

@@ -10,13 +10,14 @@ public class EnemyPathing : MonoBehaviour {
     int waypointIndex = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         transform.position = waypoints[waypointIndex].transform.position;
-  //      SpawnUntilFull();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         Move();
 	}
 
