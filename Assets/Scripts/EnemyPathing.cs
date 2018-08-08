@@ -6,8 +6,6 @@ public class EnemyPathing : MonoBehaviour {
 
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 2f;
-    [SerializeField] float spawnDelaySeconds = 1f;
-    [SerializeField] GameObject enemyPatherPrefab;
 
     int waypointIndex = 0;
 
@@ -38,53 +36,4 @@ public class EnemyPathing : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
-    //void SpawnUntilFull()
-    //{
-    //    Transform freePos = NextFreePosition();
-    //    GameObject enemy = Instantiate(enemyPatherPrefab, freePos.position, Quaternion.identity) as GameObject;
-    //    enemy.transform.parent = freePos;
-    //    if (FreePositionExists())
-    //    {
-    //        Invoke("SpawnUntilFull", spawnDelaySeconds);
-    //    }
-    //}
-
-    //bool FreePositionExists()
-    //{
-    //    foreach (Transform position in transform)
-    //    {
-    //        if (position.childCount <= 0)
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
-
-    //Transform NextFreePosition()
-    //{
-    //    foreach (Transform position in transform)
-    //    {
-    //        if (position.childCount <= 0)
-    //        {
-    //            return position;
-    //        }
-    //    }
-    //    return null;
-    //}
-
-    //bool AllMembersAreDead()
-    //{
-    //    foreach (Transform position in transform)
-    //    {
-    //        if (position.childCount > 0)
-    //        {
-    //            return false;
-    //        }
-    //    }
-    //    return true;
-    //}
-
-
 }

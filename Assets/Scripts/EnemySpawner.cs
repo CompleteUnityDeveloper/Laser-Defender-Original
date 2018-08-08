@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float spawnDelaySeconds = .5f;
+    [SerializeField] float spawnRandomFactor = 0.2f;
     [SerializeField] Transform enemyParentTransform;
     [SerializeField] Transform startingWaypoint;
 
@@ -22,7 +23,7 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject newEnemy = Instantiate(enemyPrefab, startingWaypoint.transform.position, Quaternion.identity) as GameObject;
-        Invoke("SpawnEnemy", spawnDelaySeconds);
+        Invoke("SpawnEnemy", spawnDelaySeconds + Random.Range(-spawnRandomFactor, spawnRandomFactor));
     }
 
 }
