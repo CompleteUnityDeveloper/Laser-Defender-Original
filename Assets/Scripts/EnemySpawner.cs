@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] EnemyWave startingWave;  // change to an array of allWaves. 
 
+    // CACHE - e.g. references for readability
+    Transform spawnedEnemyParent;
+
+    // STATE - private instance (member) variables
     EnemyWave currentWave;
     int spawnCounter;
 
-    // Use this for initialization
+    // CONSTANTS - compile
+
+    // messages, then public methods, then private methods...
     void Start()
     {
+        spawnedEnemyParent = FindObjectOfType<EnemySpawner>().transform;
         currentWave = startingWave;
         spawnCounter = currentWave.GetNumberOfEnemies();
         SpawnWaves();
@@ -34,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
             (currentWave.GetEnemyPrefab(),
             currentWave.GetStartingWayPoint().transform.position, 
             Quaternion.identity) as GameObject;
+        newEnemy.transform.parent = spawnedEnemyParent;
         
 //        float randomFactor = currentWave.GetSpawnRandomFactor();
         Invoke("SpawnWaves", 0.5f);
