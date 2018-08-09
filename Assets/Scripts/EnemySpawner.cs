@@ -8,21 +8,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = false;
 
-    private void Start()
+    IEnumerator Start()
     {
-        StartCoroutine(SpawnAllWaves()); // blocks to yield
+        do // for when we do things at least once
+        {
+            print("Spawning all waves...");
+            yield return StartCoroutine(SpawnAllWaves()); // series co-routine
+            print("Finshed spawing waves");
+        }
+        while (looping);
     }
-
-    //IEnumerator Start()
-    //{
-    //    do
-    //    {
-    //        print("Spawning all waves...");
-    //        yield return StartCoroutine(SpawnAllWaves()); // series co-routine
-    //        print("Finshed spawing waves");
-    //    }
-    //    while (looping);
-    //}
 
     private IEnumerator SpawnAllWaves()
     {
