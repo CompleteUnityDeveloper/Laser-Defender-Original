@@ -17,6 +17,7 @@ public class MusicPlayer : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        // This will take some explaining, it's delegates
     }
 
     void OnDisable()

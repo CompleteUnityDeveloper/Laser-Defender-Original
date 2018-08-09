@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
 
     private void OnWhyTF(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 0) // TODO consier even more robust
+        if (scene.buildIndex == 0) // assumes build index 0 is menu
         {
             score = 0;
         }

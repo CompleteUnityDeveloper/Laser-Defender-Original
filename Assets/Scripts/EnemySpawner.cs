@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemySpawner : MonoBehaviour
+{
+    [SerializeField] EnemyWave startingWave;  // change to an array of allWaves. 
 
-    [SerializeField] EnemyWaves startingWave;  // change to an array of allWaves. 
-
-    EnemyWaves currentWave;
+    EnemyWave currentWave;
     int spawnCounter;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         currentWave = startingWave;
         spawnCounter = currentWave.GetNumberOfEnemies();
-        print(spawnCounter);
         SpawnWaves();
     }
 
@@ -25,7 +25,6 @@ public class EnemySpawner : MonoBehaviour {
         {
             currentWave = currentWave.GetNextWave();
             spawnCounter = currentWave.GetNumberOfEnemies();
-            print(currentWave.name);
         }
     }
 
@@ -35,9 +34,7 @@ public class EnemySpawner : MonoBehaviour {
             (currentWave.GetEnemyPrefab(),
             currentWave.GetStartingWayPoint().transform.position, 
             Quaternion.identity) as GameObject;
-
-        print(spawnCounter);
-
+        
 //        float randomFactor = currentWave.GetSpawnRandomFactor();
         Invoke("SpawnWaves", 0.5f);
         

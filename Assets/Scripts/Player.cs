@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // TODO Ben consider using proper co-routines
             InvokeRepeating("FireSingleLaser", 0f, projectileRepeatRate);
         }
         if (Input.GetKeyUp(KeyCode.Space))

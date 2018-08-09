@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPathing : MonoBehaviour {
-
+public class EnemyPathing : MonoBehaviour
+{
     [SerializeField] Transform[] waypoints;
-    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float moveSpeed = 2f; // I'd stick here for simplicity and consistency
 
     int waypointIndex = 0;
 
