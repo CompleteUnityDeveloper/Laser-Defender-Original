@@ -5325,27 +5325,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4110092993785884, guid: 7e5f655643ca46f419e4ff4740cae5b6,
     type: 2}
   m_PrefabInternal: {fileID: 1066693835}
---- !u!1 &1111934541
+--- !u!4 &1178024873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4596127071225934, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 458170480}
+--- !u!1 &1197779645
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1111934542}
+  - component: {fileID: 1197779646}
   m_Layer: 0
-  m_Name: Spawned Objects
+  m_Name: SpawnedObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1111934542
+--- !u!4 &1197779646
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111934541}
+  m_GameObject: {fileID: 1197779645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5353,11 +5358,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1178024873 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4596127071225934, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 458170480}
 --- !u!1001 &1402746760
 Prefab:
   m_ObjectHideFlags: 0

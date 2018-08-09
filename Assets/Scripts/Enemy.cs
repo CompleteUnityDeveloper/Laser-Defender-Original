@@ -42,7 +42,12 @@ public class Enemy : MonoBehaviour
 
     void Fire()
     {
-		GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+		GameObject laser = Instantiate(
+            projectile,
+            transform.position,
+            Quaternion.identity,
+            Level.GetSpawnParent()
+        ) as GameObject;
 		laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
 		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}

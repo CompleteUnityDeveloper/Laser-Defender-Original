@@ -92,9 +92,14 @@ public class Player : MonoBehaviour
 
     private void FireSingleLaser()
     {
-        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+        GameObject laser = Instantiate(
+            laserPrefab,
+            transform.position,
+            Quaternion.identity,
+            Level.GetSpawnParent()
+        ) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
-        AudioSource.PlayClipAtPoint(fireSound, transform.position);
+        AudioSource.PlayClipAtPoint(fireSound, transform.position); // note implicit instantiate
     }
 
     private void Die()
