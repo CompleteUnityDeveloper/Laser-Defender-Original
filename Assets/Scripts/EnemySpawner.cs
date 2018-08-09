@@ -10,10 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        var currentWave = enemyWaves[startingWave];
-        print("A");
-        StartCoroutine(SpawnAllEnemiesInWave(currentWave)); // blocks to yield
-        print("B");
+        StartCoroutine(SpawnAllWaves()); // blocks to yield
     }
 
     //IEnumerator Start()
@@ -27,17 +24,17 @@ public class EnemySpawner : MonoBehaviour
     //    while (looping);
     //}
 
-    //private IEnumerator SpawnAllWaves()
-    //{
-    //    // start enemyWaves.Length, then change to list with enemyWaves.Count
-    //    for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
-    //    {
-    //        print("> Spawing wave " + waveIndex);
-    //        var currentWave = enemyWaves[waveIndex]; // note this isn't null-safe
-    //        yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-    //        // Series co-routine: "yield return" so we wait before moving on.
-    //    }
-    //}
+    private IEnumerator SpawnAllWaves()
+    {
+        // start with enemyWaves.Length, then change to list with enemyWaves.Count
+        for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
+        {
+            print("> Spawing wave " + waveIndex);
+            var currentWave = enemyWaves[waveIndex]; // note this isn't null-safe
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+            // Series co-routine: "yield return" so we wait before moving on.
+        }
+    }
 
     private IEnumerator SpawnAllEnemiesInWave(EnemyWave wave)
     {
@@ -51,7 +48,6 @@ public class EnemySpawner : MonoBehaviour
                 Level.GetSpawnParent()
             );
             yield return new WaitForSeconds(wave.GetTimeBetweenSpawns()); // comes-back to for loop
-            print("C");
         }
     }
 }
