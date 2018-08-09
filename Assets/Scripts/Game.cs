@@ -18,13 +18,8 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        
+        SetupSingleton();
     }
-
-    //void Start()
-    //   {
-    //       SetupSingleton();
-    //}
 
     private void SetupSingleton()
     {
