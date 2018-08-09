@@ -8,34 +8,41 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = false;
 
-    void Start()
+    private void Start()
     {
-        do
-        {
-            StartCoroutine(SpawnAllWaves());
-            print("Spawing all waves");
-        }
-        while (looping);
+        var currentWave = enemyWaves[startingWave];
+        StartCoroutine(SpawnAllEnemiesInWave(currentWave));
     }
 
-    private IEnumerator SpawnAllWaves()
-    {
-        // start enemyWaves.Length, then change to list with enemyWaves.Count
-        for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
-        {
-            print("Spawing wave " + waveIndex);
-            var currentWave = enemyWaves[waveIndex]; // note this isn't null-safe
-            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-            // Series co-routine: "yield return" so we wait before moving on.
-        }
-    }
+    //IEnumerator Start()
+    //{
+    //    do
+    //    {
+    //        print("Spawning all waves...");
+    //        yield return StartCoroutine(SpawnAllWaves()); // series co-routine
+    //        print("Finshed spawing waves");
+    //    }
+    //    while (looping);
+    //}
+
+    //private IEnumerator SpawnAllWaves()
+    //{
+    //    // start enemyWaves.Length, then change to list with enemyWaves.Count
+    //    for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
+    //    {
+    //        print("> Spawing wave " + waveIndex);
+    //        var currentWave = enemyWaves[waveIndex]; // note this isn't null-safe
+    //        yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+    //        // Series co-routine: "yield return" so we wait before moving on.
+    //    }
+    //}
 
     private IEnumerator SpawnAllEnemiesInWave(EnemyWave wave)
     {
         for (int enemyCount = 0; enemyCount < wave.GetNumberOfEnemies(); enemyCount++)
         {
-            print("Spawning enemy in wave");
-           Instantiate(
+            print(">> Spawning enemy in wave");
+            Instantiate(
                 wave.GetEnemyPrefab(),
                 wave.GetStartingWayPoint().transform.position,
                 Quaternion.identity,
@@ -45,3 +52,5 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 }
+
+// TODO remove print statements at the end
