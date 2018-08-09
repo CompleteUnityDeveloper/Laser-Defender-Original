@@ -11,7 +11,9 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         var currentWave = enemyWaves[startingWave];
-        StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        print("A");
+        StartCoroutine(SpawnAllEnemiesInWave(currentWave)); // blocks to yield
+        print("B");
     }
 
     //IEnumerator Start()
@@ -48,7 +50,8 @@ public class EnemySpawner : MonoBehaviour
                 Quaternion.identity,
                 Level.GetSpawnParent()
             );
-            yield return new WaitForSeconds(wave.GetTimeBetweenSpawns());
+            yield return new WaitForSeconds(wave.GetTimeBetweenSpawns()); // comes-back to for loop
+            print("C");
         }
     }
 }
