@@ -38,11 +38,12 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject newEnemy = Instantiate
-            (currentWave.GetEnemyPrefab(),
-            currentWave.GetStartingWayPoint().transform.position, 
-            Quaternion.identity) as GameObject;
-        newEnemy.transform.parent = spawnedEnemyParent;
+        Instantiate(
+            currentWave.GetEnemyPrefab(),
+            currentWave.GetStartingWayPoint().transform.position,
+            Quaternion.identity,
+            spawnedEnemyParent
+        );
         
 //        float randomFactor = currentWave.GetSpawnRandomFactor();
         Invoke("SpawnWaves", 0.5f);
