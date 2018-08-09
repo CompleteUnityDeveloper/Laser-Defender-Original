@@ -140,7 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bca31b4360b3b47a77b461477bbcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWave: {fileID: 11400000, guid: 8c6029b6b24ac0e4d91fc13051e34b2e, type: 2}
+  enemyWaves:
+  - {fileID: 11400000, guid: 8c6029b6b24ac0e4d91fc13051e34b2e, type: 2}
+  - {fileID: 11400000, guid: cd656b6b3a217a44fa085d4eddaa1ffe, type: 2}
+  - {fileID: 11400000, guid: efffff062110240e4b05ea30eddad21b, type: 2}
+  startingWave: 0
 --- !u!4 &47840060
 Transform:
   m_ObjectHideFlags: 0

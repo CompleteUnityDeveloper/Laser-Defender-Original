@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
             Level.GetSpawnParent()
         ) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
-        AudioSource.PlayClipAtPoint(fireSound, transform.position); // note implicit instantiate
+        AudioSource.PlayClipAtPoint(fireSound, transform.position); // implicit instantiate, not easy to parent
     }
 
     private void Die()

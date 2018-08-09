@@ -11,7 +11,6 @@ public class EnemyWave : ScriptableObject
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
     [SerializeField] int numberOfEnemies = 10;
-    [SerializeField] EnemyWave nextWave;  // tODO move up to higher level
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
 
@@ -24,6 +23,4 @@ public class EnemyWave : ScriptableObject
     public float GetSpawnRandomFactor() { return spawnRandomFactor; }
 
     public int GetNumberOfEnemies() { return numberOfEnemies; }
-
-    public EnemyWave GetNextWave() { return nextWave; }  // not needed
 }

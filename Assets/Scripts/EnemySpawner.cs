@@ -4,47 +4,39 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // PARAMETERS - for tuning, typically set in the editor
-    [SerializeField] EnemyWave startingWave;  // change to an array of allWaves. 
+    [SerializeField] List<EnemyWave> enemyWaves;
+    [SerializeField] int startingWave = 0;
+    [SerializeField] bool looping = false;
 
-    // STATE - private instance (member) variables
-    EnemyWave currentWave;
-    int spawnCounter;
-
-    // CONSTANTS - compile
-
-    // messages, then public methods, then private methods...
     void Start()
     {
-        currentWave = startingWave;
-        spawnCounter = currentWave.GetNumberOfEnemies();
-        SpawnWaves();
+        do
+        {
+            StartCoroutine(SpawnAllWaves());
+        }
+        while (looping);
     }
 
-    private void SpawnWaves()
+    IEnumerator SpawnAllWaves()
     {
-        SpawnEnemy();
-        spawnCounter--;
-        if (spawnCounter < 1)
+        for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
         {
-            currentWave = currentWave.GetNextWave();
-            spawnCounter = currentWave.GetNumberOfEnemies();
+            yield return StartCoroutine(SpawnAllEnemiesInWave(enemyWaves[waveIndex]));
+            // "yield return" so we wait before moving on. Series co-routine
         }
     }
 
-    void SpawnEnemy()
+    IEnumerator SpawnAllEnemiesInWave(EnemyWave wave)
     {
-        Instantiate(
-            currentWave.GetEnemyPrefab(),
-            currentWave.GetStartingWayPoint().transform.position,
-            Quaternion.identity,
-            Level.GetSpawnParent()
-        );
-        
-//        float randomFactor = currentWave.GetSpawnRandomFactor();
-        Invoke("SpawnWaves", 0.5f);
-        
-//      Invoke("ManageWaves", currentWave.GetTimeBetweenSpawns() + Random.Range(-randomFactor, randomFactor));
+        for (int enemyCount = 0; enemyCount < wave.GetNumberOfEnemies(); enemyCount++)
+        {
+           Instantiate(
+                wave.GetEnemyPrefab(),
+                wave.GetStartingWayPoint().transform.position,
+                Quaternion.identity,
+                Level.GetSpawnParent()
+            );
+            yield return new WaitForSeconds(wave.GetTimeBetweenSpawns());
+        }
     }
-
 }
