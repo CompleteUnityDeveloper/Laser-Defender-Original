@@ -6,23 +6,6 @@ public class Game : MonoBehaviour
 {
 	[SerializeField] int score = 0; // todo private
 
-    private void Start()
-    {
-        SetupSingleton();
-    }
-
-    private void SetupSingleton()
-    {
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-	
     public int GetScore()
     {
         return score;
