@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1590141510690572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.76, y: 14.85, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,7 +81,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.05, y: 2.1}
+    oldSize: {x: 0.640625, y: 0.65625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   scoreValue: 150
   fireSound: {fileID: 8300000, guid: ab7321eb71b484243a1dfefd853cff00, type: 3}
   deathSound: {fileID: 8300000, guid: 718aa9f612d6e47ceab7f5df686e30f8, type: 3}
+  deathVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 2}
 --- !u!114 &114347118992338516
 MonoBehaviour:
   m_ObjectHideFlags: 1

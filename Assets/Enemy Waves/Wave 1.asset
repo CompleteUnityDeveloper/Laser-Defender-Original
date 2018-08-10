@@ -26,7 +26,6 @@ MonoBehaviour:
   - {fileID: 4491105139666734, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
   startingWayPoint: {fileID: 4033636631411752, guid: eb61d9e95baaa154f89dfa1ab30bd3a7,
     type: 2}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.8
-  numberOfEnemies: 4
-  nextWave: {fileID: 11400000, guid: 8c6029b6b24ac0e4d91fc13051e34b2e, type: 2}
+  numberOfEnemies: 8
