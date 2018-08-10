@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -110,7 +111,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Level level = FindObjectOfType<Level>();
-        level.LoadLevel("Win Screen");
+        level.LoadNextScene();
         Destroy(gameObject);
     }
 }

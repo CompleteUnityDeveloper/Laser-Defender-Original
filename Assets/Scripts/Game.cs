@@ -6,6 +6,24 @@ public class Game : MonoBehaviour
 {
 	[SerializeField] int score = 0; // todo private
 
+    private void Awake()
+    {
+        SetupSingleton();
+    }
+
+    private void SetupSingleton()
+    {
+        int gameCount = FindObjectsOfType<Game>().Length;
+        if (gameCount > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public int GetScore()
     {
         return score;
@@ -16,11 +34,9 @@ public class Game : MonoBehaviour
 		score += points;
 	}
 
-    private void OnWhyTF(Scene scene, LoadSceneMode mode)
+    public void ResetGame()
     {
-        if (scene.buildIndex == 0) // assumes build index 0 is menu
-        {
-            score = 0;
-        }
+        Destroy(gameObject);
     }
+ 
 }

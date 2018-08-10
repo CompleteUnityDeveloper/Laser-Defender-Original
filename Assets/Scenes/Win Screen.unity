@@ -4809,8 +4809,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1282788666}
-        m_MethodName: LoadLevel
-        m_Mode: 5
+        m_MethodName: LoadStartScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10049,6 +10049,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8200000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 692856cb26b374514b8c3a1a12bed6fd, type: 3}
+    - target: {fileID: 8200000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
   m_IsPrefabAsset: 0
