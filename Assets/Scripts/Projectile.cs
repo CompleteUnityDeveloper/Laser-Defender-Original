@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-	[SerializeField] float damage = 100f;
+	[SerializeField] int damage = 100;
     [SerializeField] GameObject laserHitVFX;
 
 
-    public float GetDamage()
+    public int GetDamage()
     {
 		return damage;
 	}

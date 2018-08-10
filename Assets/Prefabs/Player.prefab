@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.19, z: 0}
+  m_LocalPosition: {x: -0.04, y: -6.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.99, y: 0.75}
+    oldSize: {x: 0.7734375, y: 0.5859375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -76,22 +76,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.495, y: 0.125}
-      - {x: 0.275, y: 0.105}
-      - {x: 0.125, y: 0.235}
-      - {x: 0.135, y: 0.375}
-      - {x: -0.105, y: 0.375}
-      - {x: -0.145, y: 0.125}
-      - {x: -0.265, y: 0.065}
-      - {x: -0.495, y: 0.095}
-      - {x: -0.495, y: -0.245}
-      - {x: -0.425, y: -0.285}
-      - {x: -0.145, y: -0.295}
-      - {x: -0.095, y: -0.375}
-      - {x: 0.105, y: -0.375}
-      - {x: 0.255, y: -0.285}
-      - {x: 0.455, y: -0.265}
-      - {x: 0.495, y: -0.255}
+    - - {x: 0.39037946, y: 0.076471806}
+      - {x: 0.28247294, y: 0.015409946}
+      - {x: 0.10631781, y: 0.104347706}
+      - {x: 0.06400745, y: 0.3040743}
+      - {x: -0.07137197, y: 0.31900644}
+      - {x: -0.107585736, y: 0.11114931}
+      - {x: -0.28324857, y: 0.01674509}
+      - {x: -0.41279814, y: 0.065135956}
+      - {x: -0.37917015, y: -0.21513653}
+      - {x: -0.31664303, y: -0.19540977}
+      - {x: -0.12258131, y: -0.2315402}
+      - {x: -0.06510836, y: -0.30780745}
+      - {x: 0.056426145, y: -0.31154013}
+      - {x: 0.12796074, y: -0.21034098}
+      - {x: 0.30927846, y: -0.20900631}
+      - {x: 0.3866429, y: -0.2326026}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,11 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc17dd568fa9482d8f36bc8cf7948f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 100000, guid: 350281d2f65194374b61135125a0f9e2, type: 2}
-  projectileSpeed: 10
-  projectileRepeatRate: 0.2
+  laserPrefab: {fileID: 100000, guid: 350281d2f65194374b61135125a0f9e2, type: 2}
+  projectileSpeed: 20
+  projectileRepeatRate: 0.1
   fireSound: {fileID: 8300000, guid: 5cd481a322bc14a22995ec2ac6435159, type: 3}
-  speed: 15
+  speed: 10
   padding: 1
   health: 200
 --- !u!212 &21200000

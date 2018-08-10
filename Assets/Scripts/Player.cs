@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [Header("Player")]
 	[SerializeField] float speed = 15.0f;
 	[SerializeField] float padding = 1;
-	[SerializeField] float health = 200;
+	[SerializeField] int health = 200;
 
     // cached references for readability
 
@@ -37,6 +37,11 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return health;
     }
 
     void Start()

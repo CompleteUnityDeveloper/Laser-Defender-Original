@@ -6,16 +6,6 @@ public class Game : MonoBehaviour
 {
 	[SerializeField] int score = 0; // todo private
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnWhyTF;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnWhyTF; // always unsubscribe
-    }
-
     private void Start()
     {
         SetupSingleton();

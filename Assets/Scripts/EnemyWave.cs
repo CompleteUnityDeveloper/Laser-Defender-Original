@@ -16,7 +16,10 @@ public class EnemyWave : ScriptableObject
 
     public Transform[] GetWayPoints()  { return waveWaypoints; } // TODO remove
 
-    public Transform GetStartingWayPoint() { return startingWayPoint; }  // not needed
+    public Transform GetStartingWayPoint()
+    {
+        return startingWayPoint;
+    }  
 
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }
 

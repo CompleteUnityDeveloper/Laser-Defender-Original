@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 4405430015158724, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0, type: 2}
   - {fileID: 4356547733798850, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0, type: 2}
   - {fileID: 4613007771645378, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0, type: 2}
-  startingWayPoint: {fileID: 4842860764365268, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0,
+  startingWayPoint: {fileID: 4785595623916678, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0,
     type: 2}
   timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
