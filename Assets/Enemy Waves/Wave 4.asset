@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6501aaede1559d46a649b4dadc6c06a, type: 3}
+  m_Name: Wave 4
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1590141510690572, guid: b65280e3a463a21479e8d6a4e401b4d0,
+    type: 2}
+  waveWaypoints:
+  - {fileID: 4603709884215254, guid: 87915d2fc66ab1f4f84f63376463628e, type: 2}
+  - {fileID: 4038630640733244, guid: 87915d2fc66ab1f4f84f63376463628e, type: 2}
+  - {fileID: 4027477465061830, guid: 87915d2fc66ab1f4f84f63376463628e, type: 2}
+  - {fileID: 4679889222130530, guid: 87915d2fc66ab1f4f84f63376463628e, type: 2}
+  startingWayPoint: {fileID: 4603709884215254, guid: 87915d2fc66ab1f4f84f63376463628e,
+    type: 2}
+  timeBetweenSpawns: 1
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 1

@@ -4,14 +4,24 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
 	[SerializeField] float damage = 100f;
-	
-	public float GetDamage()
+    [SerializeField] GameObject laserHitVFX;
+
+
+    public float GetDamage()
     {
 		return damage;
 	}
 	
 	public void Hit()
     {
-		Destroy(gameObject);
+        PlayHitEffect();
+        Destroy(gameObject);
 	}
+
+    public void PlayHitEffect()
+    {
+        GameObject hitImpact = Instantiate(laserHitVFX, transform.position, transform.rotation);
+        Destroy(hitImpact, 0.5f);
+    }
+
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5000000}
   - component: {fileID: 6100000}
   - component: {fileID: 11400000}
-  m_Layer: 8
-  m_Name: PlayerLaser
+  m_Layer: 10
+  m_Name: Phat Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.8392467, y: -5.303593, z: 0}
+  m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,8 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  laserHitVFX: {fileID: 1102043501650970, guid: 141eff5c9ef8eee4e903e984f8035a5e,
-    type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,8 +121,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1682556905
-  m_SortingLayer: 3
+  m_SortingLayerID: -50057485
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d36dfac6d97046a3b5f3e32690fa1f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
