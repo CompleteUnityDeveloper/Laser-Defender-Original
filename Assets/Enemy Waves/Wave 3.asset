@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 4842860764365268, guid: 8b8fb24a0fd9ee7458a6d0a77a5655e0, type: 2}
   startingWayPoint: {fileID: 4033636631411752, guid: eb61d9e95baaa154f89dfa1ab30bd3a7,
     type: 2}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
-  numberOfEnemies: 1
+  numberOfEnemies: 3

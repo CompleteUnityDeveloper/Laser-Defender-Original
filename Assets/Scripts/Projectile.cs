@@ -14,9 +14,9 @@ public class Projectile : MonoBehaviour
 	
 	public void Hit()
     {
-        PlayHitEffect();
         Destroy(gameObject);
-	}
+        PlayHitEffect();
+    }
 
     public void PlayHitEffect()
     {
