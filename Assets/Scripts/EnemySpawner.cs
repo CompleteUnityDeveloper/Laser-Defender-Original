@@ -53,4 +53,4 @@ public class EnemySpawner : MonoBehaviour
     }
 }
 
-// TODO remove print statements at the end
+// NOTE remove print statements at the end

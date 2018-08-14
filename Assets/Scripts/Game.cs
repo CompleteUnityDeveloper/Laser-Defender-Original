@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Game : MonoBehaviour
 {
-	[SerializeField] int score = 0; // todo private
+	int score = 0;
 
     private void Awake()
     {

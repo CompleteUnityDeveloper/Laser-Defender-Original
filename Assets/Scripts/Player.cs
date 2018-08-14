@@ -62,24 +62,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        // TODO consider GetAxis and CrossPlatformInput
-        float deltaX = 0;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            deltaX = transform.position.x - speed * Time.deltaTime;
-            MoveBy(deltaX);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            deltaX = transform.position.x + speed * Time.deltaTime;
-            MoveBy(deltaX);
-        }
-    }
-
-    private void MoveBy(float deltaX)
-    {
+        var deltaX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        var proposedXpos = transform.position.x + deltaX;
         transform.position = new Vector3(
-            Mathf.Clamp(deltaX, xmin, xmax),
+            Mathf.Clamp(proposedXpos, xmin, xmax),
             transform.position.y,
             transform.position.z
         );
@@ -87,17 +73,16 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))  // Only start co-routine once
         {
             firingHandle = StartCoroutine(FireContinuously());
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(firingHandle);
         }
     }
 
-    // TODO consider starting with Invoke than challenging to change to coroutine
     IEnumerator FireContinuously()
     {
         while(true)  // forever so we must stop the co-routine
