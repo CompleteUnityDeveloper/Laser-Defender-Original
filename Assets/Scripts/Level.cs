@@ -11,12 +11,20 @@ public class Level : MonoBehaviour
 
     // cached references
 
-    public void LoadLevel(string name)
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(name);
-	}
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
 
-	public void QuitRequest()
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene(0);
+        FindObjectOfType<Game>().ResetGame();
+    }
+
+
+    public void QuitRequest()
     {
 		Application.Quit();
 	}

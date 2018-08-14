@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  laserHitVFX: {fileID: 1102043501650970, guid: 141eff5c9ef8eee4e903e984f8035a5e,
+    type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

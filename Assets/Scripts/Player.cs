@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     [Header("Player")]
 	[SerializeField] float speed = 15.0f;
 	[SerializeField] float padding = 1;
-	[SerializeField] float health = 200;
+	[SerializeField] int health = 200;
 
     // cached references for readability
 
@@ -37,6 +38,11 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return health;
     }
 
     void Start()
@@ -105,7 +111,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Level level = FindObjectOfType<Level>();
-        level.LoadLevel("Win Screen");
+        level.LoadNextScene();
         Destroy(gameObject);
     }
 }

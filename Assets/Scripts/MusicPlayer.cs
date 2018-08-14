@@ -33,7 +33,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void SetupSingleton()
     {
-        if (FindObjectsOfType(GetType()).Length > 1)
+        if(FindObjectsOfType(GetType()).Length > 1)
         {
             Destroy(gameObject);
         }
@@ -43,7 +43,7 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
-    private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         PlayMusicForScene(scene);
     }

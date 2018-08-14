@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int scoreValue = 150;
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
+    [SerializeField] GameObject deathVFX;
 
     // instance variables for state TODO consdier a level play time
 
@@ -74,7 +75,14 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
 		AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        PlayDeathVFX(); 
         FindObjectOfType<Game>().Score(scoreValue);
 		Destroy(gameObject);
 	}
+
+    private void PlayDeathVFX()
+    {
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, 1f);
+    }
 }

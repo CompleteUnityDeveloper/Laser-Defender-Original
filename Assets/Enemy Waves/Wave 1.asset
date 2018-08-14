@@ -8,25 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6501aaede1559d46a649b4dadc6c06a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a38930ec4bd040d29473c61ed1eee5d, type: 3}
   m_Name: Wave 1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1590141510690572, guid: 1198f151f6a2b24439d12eff234025e5,
+  enemyPrefab: {fileID: 1590141510690572, guid: 3320b016a14b3644194fa2db9459db5e,
     type: 2}
-  waveWaypoints:
-  - {fileID: 4984065868861162, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4586405897829252, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4096428106811384, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4289412763865210, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4938550264279576, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4019159764100350, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4677367714824796, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4345876416496596, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4343869125040138, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  - {fileID: 4491105139666734, guid: 7e5f655643ca46f419e4ff4740cae5b6, type: 2}
-  startingWayPoint: {fileID: 4033636631411752, guid: eb61d9e95baaa154f89dfa1ab30bd3a7,
-    type: 2}
-  timeBetweenSpawns: 1
-  spawnRandomFactor: 0.8
-  numberOfEnemies: 4
-  nextWave: {fileID: 11400000, guid: 8c6029b6b24ac0e4d91fc13051e34b2e, type: 2}
+  pathPrefab: {fileID: 1655386254011812, guid: eb61d9e95baaa154f89dfa1ab30bd3a7, type: 2}
+  timeBetweenSpawns: 2
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 5
+  moveSpeed: 1

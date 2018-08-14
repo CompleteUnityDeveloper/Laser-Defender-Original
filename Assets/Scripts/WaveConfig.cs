@@ -6,8 +6,7 @@ using UnityEngine;
 public class WaveConfig : ScriptableObject
 {
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] Transform[] waveWaypoints;
-    [SerializeField] Transform startingWayPoint;  // dont need to have this here
+    [SerializeField] GameObject pathPrefab;
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
     [SerializeField] int numberOfEnemies = 10;
@@ -15,9 +14,15 @@ public class WaveConfig : ScriptableObject
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
 
-    public Transform[] GetWayPoints()  { return waveWaypoints; } // TODO remove
-
-    public Transform GetStartingWayPoint() { return startingWayPoint; }  // not needed
+    public Transform[] GetWayPoints()
+    {
+        var waveWayPoints = new List<Transform>();
+        foreach (Transform child in pathPrefab.transform)
+        {
+            waveWayPoints.Add(child);
+        }
+        return waveWayPoints.ToArray();  // TODO consider returning list
+    }
 
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }
 

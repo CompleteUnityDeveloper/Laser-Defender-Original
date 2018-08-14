@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
     {
         var newEnemy = Instantiate(
             waveConfig.GetEnemyPrefab(),
-            waveConfig.GetStartingWayPoint().transform.position,
+            waveConfig.GetWayPoints()[0].transform.position, // starting waypoint
             Quaternion.identity,
             Level.GetSpawnParent()
         );
