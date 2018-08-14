@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] List<EnemyWave> enemyWaves; // start with EnemyWave[] 
+    [SerializeField] List<WaveConfig> waveConfigs; // start with EnemyWave[] 
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = false;
 
@@ -22,28 +22,34 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnAllWaves()
     {
         // start with enemyWaves.Length, then change to list with enemyWaves.Count
-        for (int waveIndex = startingWave; waveIndex < enemyWaves.Count; waveIndex++)
+        for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++)
         {
             print("> Spawing wave " + waveIndex);
-            var currentWave = enemyWaves[waveIndex]; // note this isn't null-safe
-            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+            var waveConfig = waveConfigs[waveIndex]; // note this isn't null-safe
+            yield return StartCoroutine(SpawnAllEnemiesInWave(waveConfig));
             // Series co-routine: "yield return" so we wait before moving on.
         }
     }
 
-    private IEnumerator SpawnAllEnemiesInWave(EnemyWave wave)
+    private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
     {
-        for (int enemyCount = 0; enemyCount < wave.GetNumberOfEnemies(); enemyCount++)
+        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
         {
             print(">> Spawning enemy in wave");
-            Instantiate(
-                wave.GetEnemyPrefab(),
-                wave.GetStartingWayPoint().transform.position,
-                Quaternion.identity,
-                Level.GetSpawnParent()
-            );
-            yield return new WaitForSeconds(wave.GetTimeBetweenSpawns()); // comes-back to for loop
+            SpawnEnemy(waveConfig);
+            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns()); // comes-back to for loop
         }
+    }
+
+    private static void SpawnEnemy(WaveConfig waveConfig)
+    {
+        var newEnemy = Instantiate(
+            waveConfig.GetEnemyPrefab(),
+            waveConfig.GetStartingWayPoint().transform.position,
+            Quaternion.identity,
+            Level.GetSpawnParent()
+        );
+        newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
     }
 }
 
