@@ -5,12 +5,6 @@ using System;
 
 public class Level : MonoBehaviour
 {
-    // state variables TODO consider or challenge level play time
-
-    // configuration parameters
-
-    // cached references
-
     public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

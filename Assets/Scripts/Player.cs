@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))  // Only start co-routine once
+        if (Input.GetButtonDown("Fire1"))  // Only start coroutine once
         {
             firingHandle = StartCoroutine(FireContinuously());
         }
