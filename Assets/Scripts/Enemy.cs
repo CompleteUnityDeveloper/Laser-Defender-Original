@@ -15,13 +15,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip deathSound;
     [SerializeField] GameObject deathVFX;
 
-    // instance variables for state TODO consdier a level play time
 
     // messages, then public methods, then private methods... 
-
-
-    // Updated by Rick - Random firing rate with min and max times between shot
-    private void Start()
+    void Start()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
     }
@@ -41,7 +37,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Fire()
+    private void Fire()
     {
 		GameObject laser = Instantiate(
             projectile,
@@ -53,7 +49,7 @@ public class Enemy : MonoBehaviour
 		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Projectile missile = other.gameObject.GetComponent<Projectile>();
         if(missile)

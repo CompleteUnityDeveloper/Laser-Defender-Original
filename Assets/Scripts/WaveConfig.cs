@@ -14,14 +14,14 @@ public class WaveConfig : ScriptableObject
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
 
-    public Transform[] GetWayPoints()
+    public List<Transform> GetWayPoints()
     {
         var waveWayPoints = new List<Transform>();
         foreach (Transform child in pathPrefab.transform)
         {
             waveWayPoints.Add(child);
         }
-        return waveWayPoints.ToArray();  // TODO consider returning list
+        return waveWayPoints;
     }
 
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }

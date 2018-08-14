@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [Header("Projectile")]
 	[SerializeField] GameObject laserPrefab;
 	[SerializeField] float projectileSpeed = 10;
-	[SerializeField] float projectileRepeatRate = 0.2f;
+	[SerializeField] float projectileFiringPeriod = 0.2f;
     [SerializeField] AudioClip fireSound;
 	
     [Header("Player")]
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     // private instance variables for state
 	float xmax = -5;
 	float xmin = 5;
+    Coroutine firingHandle;
 	
     // messages, then public methods, then private methods...
     void OnTriggerEnter2D(Collider2D other)
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        // TODO consider GetAxis and CrossPlatformInput
         float deltaX = 0;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -87,25 +89,29 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // TODO Ben consider using proper co-routines
-            InvokeRepeating("FireSingleLaser", 0f, projectileRepeatRate);
+            firingHandle = StartCoroutine(FireContinuously());
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            CancelInvoke("FireSingleLaser");
+            StopCoroutine(firingHandle);
         }
     }
 
-    private void FireSingleLaser()
+    // TODO consider starting with Invoke than challenging to change to coroutine
+    IEnumerator FireContinuously()
     {
-        GameObject laser = Instantiate(
-            laserPrefab,
-            transform.position,
-            Quaternion.identity,
-            Level.GetSpawnParent()
-        ) as GameObject;
-        laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
-        AudioSource.PlayClipAtPoint(fireSound, transform.position); // implicit instantiate, not easy to parent
+        while(true)  // forever so we must stop the co-routine
+        {
+            GameObject laser = Instantiate(
+                laserPrefab,
+                transform.position,
+                Quaternion.identity,
+                Level.GetSpawnParent()
+            ) as GameObject;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+            AudioSource.PlayClipAtPoint(fireSound, transform.position); // implicit instantiate, not easy to parent
+            yield return new WaitForSeconds(projectileFiringPeriod);
+        }
     }
 
     private void Die()

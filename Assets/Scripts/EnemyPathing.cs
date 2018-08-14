@@ -6,12 +6,12 @@ public class EnemyPathing : MonoBehaviour
 {
     int waypointIndex = 0;
     WaveConfig waveConfig;
-    Transform[] wayPoints;
+    List<Transform> wayPoints;
 
 	// Use this for initialization
 	void Start ()
     {
-        wayPoints = waveConfig.GetWayPoints(); // TODO consider list
+        wayPoints = waveConfig.GetWayPoints();
         transform.position = wayPoints[waypointIndex].transform.position;
 	}
 	
@@ -29,7 +29,7 @@ public class EnemyPathing : MonoBehaviour
 
     private void Move()
     {
-        if (waypointIndex <= wayPoints.Length - 1)
+        if (waypointIndex <= wayPoints.Count - 1)  // Need to actually count at run-time (not just get length)
         {
             var targetPosition = wayPoints[waypointIndex].transform.position;
             var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
